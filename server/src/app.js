@@ -11,11 +11,18 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-// get request to a status end point
-app.get('/status', (req, res) => {
+// use the post method develop the register end point that receives email and password from client
+app.post('/register', (req, res) => {
   res.send({
-    message: 'hello world'
+    message: `Hello ${req.body.email}! Your user was registered! Have fun!`
   })
 })
+
+// // use the post method develop the register end point that receives email and password from client
+// app.post('/register', (req, res) => {
+//   res.send({
+//     message: `Hello ${req.body.email}! Your user was registered! Have fun!` // we can as well access the pushed credentials
+//   })
+// })
 
 app.listen(process.env.PORT || 8081)
